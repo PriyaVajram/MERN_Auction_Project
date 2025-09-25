@@ -22,6 +22,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Contact from "./pages/Contact";
 import UserProfile from "./pages/UserProfile";
 
+export const fetchUser = loadUser; 
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
