@@ -39,8 +39,7 @@ const About = () => {
           </h1>
           <p className="text-xl text-stone-600">
             Welcome to PrimeBid, the ultimate destination for online auctions
-            and bidding excitement. Founded in 2024, we are dedicated to
-            providing a dynamic and user-friendly platform for buyers and
+            and bidding excitement. Founded in 2025. It provides a dynamic and user-friendly platform for buyers and
             sellers to connect, explore, and transact in a secure and seamless
             environment.
           </p>
@@ -76,20 +75,10 @@ const About = () => {
             })}
           </ul>
         </div>
-        <div>
-          <h3
-            className={`text-[#111] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}
-          >
-            Our Story
-          </h3>
-          <p className="text-xl text-stone-600">
-            Founded by CodeWithZeeshu, PrimeBid was born out of a passion for
-            connecting people with unique and valuable items. With years of
-            experience in the auction industry, our team is committed to
-            creating a platform that offers an unparalleled auction experience
-            for users worldwide.
-          </p>
-        </div>
+        
+          
+           
+        
         <div>
           <h3
             className={`text-[#111] text-xl font-semibold mb-2 min-[480px]:text-xl md:text-2xl lg:text-3xl`}
