@@ -1,4 +1,3 @@
-import { config } from "dotenv";
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -14,21 +13,22 @@ import { endedAuctionCron } from "./automation/endedAuctionCron.js";
 import { verifyCommissionCron } from "./automation/verifyCommissionCron.js";
 
 const app = express();
-config({
-  path: "./config/config.env",
-});
 
+//  CORS Setup
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
-    methods: ["POST", "GET", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
 
+// Middleware
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// File Uploads
 app.use(
   fileUpload({
     useTempFiles: true,
@@ -36,15 +36,21 @@ app.use(
   })
 );
 
+// API Routes
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/auctionitem", auctionItemRouter);
 app.use("/api/v1/bid", bidRouter);
 app.use("/api/v1/commission", commissionRouter);
 app.use("/api/v1/superadmin", superAdminRouter);
 
+// CRON Jobs
 endedAuctionCron();
 verifyCommissionCron();
+
+// Database Connection
 connection();
+
+// Global Error Handler
 app.use(errorMiddleware);
 
 export default app;
