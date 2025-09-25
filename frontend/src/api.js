@@ -14,12 +14,12 @@ export const testBackend = async () => {
   }
 };
 
-// Register user
+// Register user with profile image
 export const registerUser = async (formData) => {
   try {
     const res = await fetch(`${backendUrl}/api/v1/user/register`, {
       method: "POST",
-      body: formData, // FormData if uploading image
+      body: formData, // FormData includes profile image
       credentials: "include",
     });
     return await res.json();
@@ -55,7 +55,7 @@ export const logoutUser = async () => {
   }
 };
 
-// Get profile
+// Get profile (requires login)
 export const getProfile = async () => {
   try {
     const res = await fetch(`${backendUrl}/api/v1/user/me`, {
@@ -79,12 +79,12 @@ export const getAuctionItems = async () => {
   }
 };
 
-// Create auction item
+// Create auction item with image
 export const createAuctionItem = async (formData) => {
   try {
     const res = await fetch(`${backendUrl}/api/v1/auctionitem`, {
       method: "POST",
-      body: formData,
+      body: formData, // FormData includes auction image
       credentials: "include",
     });
     return await res.json();
@@ -126,7 +126,7 @@ export const getCommissions = async () => {
 
 // ===================== SuperAdmin Routes =====================
 
-// Example: fetch leaderboard
+// Fetch leaderboard (Admin/Auctioneer)
 export const fetchLeaderboard = async () => {
   try {
     const res = await fetch(`${backendUrl}/api/v1/user/leaderboard`, {
