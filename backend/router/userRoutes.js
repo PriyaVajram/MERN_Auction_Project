@@ -1,5 +1,14 @@
 errorMiddleware
 import express from "express";
+
+router.get("/test", (req, res) => {
+  res.json({
+    success: true,
+    message: "User route is live and working!",
+    timestamp: new Date(),
+  });
+});
+
 import {
   register,
   login,
